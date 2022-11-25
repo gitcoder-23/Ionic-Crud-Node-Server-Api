@@ -1,0 +1,72 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <!-- <ion-title *ngIf="!emp._id;else EditEmployee">Add Employee</ion-title>
+    <ng-template #EditEmployee>Edit Employee</ng-template> -->
+
+    <ion-title *ngIf="!emp._id">Add Employee</ion-title>
+    <ion-title *ngIf="emp._id">Edit Employee</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form
+    name="editForm"
+    #editForm="ngForm"
+    (ngSubmit)="employeeSubmit()"
+    novalidate
+  >
+    <ion-list>
+      <ion-item>
+        <ion-label>EmpId ::-</ion-label>
+        <ion-input name="empId" [(ngModel)]="emp._id" readonly=""></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Name ::-</ion-label>
+        <ion-input
+          name="name"
+          [(ngModel)]="emp.name"
+          required="required"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Email ::-</ion-label>
+        <ion-input
+          name="email"
+          [(ngModel)]="emp.email"
+          required="required"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Phone ::-</ion-label>
+        <ion-input
+          name="phone"
+          [(ngModel)]="emp.phone"
+          required="required"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Position ::-</ion-label>
+        <ion-input
+          name="position"
+          [(ngModel)]="emp.position"
+          required="required"
+        ></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Salary ::-</ion-label>
+        <ion-input
+          name="salary"
+          [(ngModel)]="emp.salary"
+          required="required"
+        ></ion-input>
+      </ion-item>
+      <ion-button [disabled]="editForm.form.invalid" (click)="employeeSubmit()"
+        >Save</ion-button
+      >
+      <!-- <ion-button (click)="employeeSubmit()">Save</ion-button> -->
+    </ion-list>
+  </form>
+</ion-content>

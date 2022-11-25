@@ -1,0 +1,7 @@
+{
+  "name": "employeeCrudIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

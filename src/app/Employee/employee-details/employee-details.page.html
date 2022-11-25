@@ -1,0 +1,58 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Employee List</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Refresh After Adding any data Start-->
+  <ion-refresher
+    style="background-color: #fff"
+    slot="fixed"
+    (ionRefresh)="doRefresh($event)"
+  >
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    ></ion-refresher-content>
+  </ion-refresher>
+  <!-- Refresh After Adding any data End-->
+
+  <ion-list>
+    <ion-item>
+      <ion-label>Employee Details</ion-label>
+
+      <ion-icon
+        slot="start"
+        color="primary"
+        name="add-circle"
+        [routerLink]="['/', 'addemployee']"
+      ></ion-icon>
+    </ion-item>
+
+    <ion-item *ngFor="let employee of empAllList, let indx = index">
+      <ion-label>{{indx + 1}}</ion-label>
+      <ion-label>{{employee.name}}</ion-label>
+      <ion-label>{{employee.email}}</ion-label>
+      <ion-label>{{employee.phone}}</ion-label>
+      <ion-label>{{employee.position}}</ion-label>
+      <ion-icon
+        slot="end"
+        color="primary"
+        name="create"
+        [routerLink]="['/', 'updateemployee', employee._id]"
+      ></ion-icon>
+      <ion-icon
+        slot="end"
+        color="danger"
+        name="trash"
+        (click)="deleteEmployee(employee._id)"
+      ></ion-icon>
+    </ion-item>
+  </ion-list>
+</ion-content>
