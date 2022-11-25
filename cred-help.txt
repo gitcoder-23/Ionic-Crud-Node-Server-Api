@@ -1,0 +1,9 @@
+// cred
+mongooDb//
+
+user: react-native-employee
+pwd: react-native-employee
+
+
+// ## NGROK by git account
+Authtoken saved to configuration file: C:\Users\DCUNI/.ngrok2/ngrok.yml
